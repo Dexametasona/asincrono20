@@ -1,0 +1,35 @@
+<div>
+  <div>
+    <h1 class="text-4xl text-center font-bold">Bienvenido a la aplicacion de interceptores- Certus</h1>
+  </div>
+  <div class="flex justify-center">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLTSxPUgeGygI68uKjyMdkMkzSDGxEBihj3BlduJNqzA&s">
+  </div>
+  <div class="bg-gray-700 py-2">
+    <button (click)="paginar('-')" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-4 border border-gray-400 rounded shadow">prev</button>
+    <button (click)="paginar('+')" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-4 border border-gray-400 rounded shadow">next</button>
+    <span class="text-xl ml-2 text-white">Vista:</span><select (click)="paginar(pag.value)" #pag class="shadow appearance-none border rounded py-1 px-3 text-gray-700 font-bold leading-tight focus:outline-none hover:bg-gray-100 cursor-pointer">
+      <option value="10">10</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+  </div>
+  <table class="w-4/5 mx-auto">
+    <thead>
+      <tr class="bg-slate-300 border-b text-xl">
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Cuerpo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of datos | paginacion:page_size:page_number" class="border">
+        <td class="p-2">{{x.id}}</td>
+        <td class="p-2">{{x.title}}</td>
+        <td class="p-2">{{x.body}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
